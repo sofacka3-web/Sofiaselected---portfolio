@@ -21,16 +21,20 @@
 <meta name="twitter:description" content="UX/UI and web design portfolio focused on AI products, SaaS interfaces, digital platforms, product workflows, and AI agents.">
 <meta name="twitter:image" content="https://sofiaselected.com/og-image.jpg">
 
+<style>
+  * { margin: 0; padding: 0; }
+  body { background: #0e0e0d; }
+</style>
+
 <script>
-  // Instant redirect — keeps URL clean
-  (function(){
-    var p = window.location.pathname;
-    if(p === '/' || p === '/index.html'){
-      window.location.replace('/portfolio.html');
-    }
-  })();
+  fetch('/portfolio.html')
+    .then(function(r){ return r.text(); })
+    .then(function(html){
+      document.open('text/html', 'replace');
+      document.write(html);
+      document.close();
+    });
 </script>
 </head>
-<body style="background:#0e0e0d;margin:0;">
-</body>
+<body style="background:#0e0e0d;"></body>
 </html>
